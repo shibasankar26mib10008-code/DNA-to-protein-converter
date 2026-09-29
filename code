@@ -1,0 +1,51 @@
+codon_table = {'AUA': 'I', 'AUC': 'I', 'AUU': 'I', 'AUG': 'M',
+    'ACA': 'T', 'ACC': 'T', 'ACG': 'T', 'ACU': 'T',
+    'AAC': 'N', 'AAU': 'N', 'AAA': 'K', 'AAG': 'K',
+    'AGC': 'S', 'AGU': 'S', 'AGA': 'R', 'AGG': 'R',
+    'CUA': 'L', 'CUC': 'L', 'CUG': 'L', 'CUU': 'L',
+    'CCA': 'P', 'CCC': 'P', 'CCG': 'P', 'CCU': 'P',
+    'CAC': 'H', 'CAU': 'H', 'CAA': 'Q', 'CAG': 'Q',
+    'CGA': 'R', 'CGC': 'R', 'CGG': 'R', 'CGU': 'R',
+    'GUA': 'V', 'GUC': 'V', 'GUG': 'V', 'GUU': 'V',
+    'GCA': 'A', 'GCC': 'A', 'GCG': 'A', 'GCU': 'A',
+    'GAC': 'D', 'GAU': 'D', 'GAA': 'E', 'GAG': 'E',
+    'GGA': 'G', 'GGC': 'G', 'GGG': 'G', 'GGU': 'G',
+    'UCA': 'S', 'UCC': 'S', 'UCG': 'S', 'UCU': 'S',
+    'UUC': 'F', 'UUU': 'F', 'UUA': 'L', 'UUG': 'L',
+    'UAC': 'Y', 'UAU': 'Y', 'UAA': '*', 'UAG': '*', 'UGA': '*',
+    'UGC': 'C', 'UGU': 'C', 'UGG': 'W',}
+
+
+print("Welcome to DNA to Protein Converter")
+print("-----------------------------------")
+
+dna_seq = input("Enter your DNA sequence here: ")
+dna_seq = dna_seq.upper()
+
+is_valid = True
+for char in dna_seq:
+    if char not in ['A', 'T', 'G', 'C']:
+        is_valid = False
+
+if is_valid == False:
+    print("Wrong input! Please give only A, T, G, C")
+else:
+    rna_seq = dna_seq.replace('T', 'U')
+    print("Your RNA is:", rna_seq)
+
+    protein_seq = ""
+
+    for i in range(0, len(rna_seq), 3):
+        codon = rna_seq[i:i + 3]
+
+        # checking if codon has exactly 3 letters
+        if len(codon) == 3:
+            amino_acid = codon_table.get(codon, "?")
+            if amino_acid == '*':
+                print("Stop codon found.")
+                break
+            else:
+                protein_seq = protein_seq + amino_acid
+
+    print("Your Protein sequence is:", protein_seq)
+    print("-----------------------------------")
