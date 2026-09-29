@@ -1,0 +1,22 @@
+Welcome to DNA to Protein Converter
+-----------------------------------
+Enter your DNA sequence here: atg gcg ttt tag gca
+Your RNA is: AUG GCG UUU UAG GCA
+Stop codon found.
+Your Protein sequence is: MAF
+-----------------------------------
+
+
+Welcome to DNA to Protein Converter
+-----------------------------------
+Enter your DNA sequence here: ATGGCCAACGACTGA
+Your RNA is: AUGGCCAAUGACUGA
+Stop codon found.
+Your Protein sequence is: MAND
+-----------------------------------
+
+
+Welcome to DNA to Protein Converter
+-----------------------------------
+Enter your DNA sequence here: ATG-GCT-XYZ-123
+Wrong input! Please give only A, T, G, C
